@@ -297,27 +297,8 @@
       text-decoration: underline;
     }
   </style>
-  <section class="section">
-    <div class="container">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">⚙️ Pipeline</h2>
-          <div class="content has-text-justified">
-            <img src="./assets/webpage/static/images/data_pipeline.jpg" width="100%" />
-            <p>Our comprehensive data curation pipeline systematically processes ophthalmology datasets by extracting
-              key
-              clinical information, anatomical annotations, and diagnostic metadata. We leverage multimodal large
-              language
-              models to automatically generate diverse question-answer pairs spanning anatomical recognition, disease
-              diagnosis, staging assessment, and patient demographic analysis.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-  </section>
 
-  <section class="section">
+  <section class="section" style="padding-top: 2rem;">
     <div class="container">
       <!-- Abstract. -->
       <div class="columns is-centered has-text-centered">
@@ -333,7 +314,6 @@
                 submissions and look forward to your participation! 😆</b>
             </p>
           </div> -->
-          <h2 class="title is-3">👋Introduction</h2>
           <div class="content has-text-justified">
             <p>
               Vision-threatening eye diseases pose a major global health burden, affecting more than 2.2 billion people
@@ -388,11 +368,20 @@
     </div>
   </section> -->
 
+  <!-- LMOD+ DATASET SECTION -->
+  <section class="hero is-primary is-small" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+    <div class="hero-body has-text-centered">
+      <h1 class="title is-1 lmod">
+        <img src="./assets/webpage/static/images/goji_logo.png" style="width:1em;vertical-align: middle" alt="Logo" />
+        <span class="lmod" style="vertical-align: middle">LMOD+ Dataset</span>
+      </h1>
+    </div>
+  </section>
+
   <section class="section">
     <div class="container">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">🔍Related Work</h2>
           <div class="content has-text-justified">
             <p>
               Comparison of existing general-domain and ophthalmology-specific benchmarks for evaluating large
@@ -585,6 +574,25 @@
 
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
+          <h2 class="title is-3">⚙️ Data Curation Pipeline</h2>
+          <div class="content has-text-justified">
+            <img src="./assets/webpage/static/images/data_pipeline.jpg" width="100%" />
+            <p>Our comprehensive data curation pipeline systematically processes ophthalmology datasets by extracting
+              key
+              clinical information, anatomical annotations, and diagnostic metadata. We leverage multimodal large
+              language
+              models to automatically generate diverse question-answer pairs spanning anatomical recognition, disease
+              diagnosis, staging assessment, and patient demographic analysis.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
           <h2 class="title is-3">📊Statistics</h2>
           <div class="content">
             <table id="statistics-table" class="js-sort-table">
@@ -684,7 +692,8 @@
   </section>
 
   <!-- RESULTS SECTION -->
-  <section class="hero is-light is-small">
+  <section class="hero is-info is-small"
+    style="background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%); margin-top: 2rem;">
     <div class="hero-body has-text-centered">
       <h1 class="title is-1 lmod">
         <img src="./assets/webpage/static/images/goji_logo.png" style="width:1em;vertical-align: middle" alt="Logo" />
@@ -692,12 +701,12 @@
       </h1>
     </div>
   </section>
-  <section class="section">
+  <section class="section" style="padding-top: 3rem;">
     <div class="container">
       <!-------------------------------------------------------------------- RESULTS SECTION -------------------------------------------------------------------->
 
       <!-- 1. Performance Comparison Across Imaging Modalities -->
-      <div class="columns is-centered m-6">
+      <div class="columns is-centered m-3">
         <div class="column is-full has-text-centered content">
           <h2 class="title is-3">📊Ocular Anatomical Structure Recognition Performance</h2>
           <div class="content">
