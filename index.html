@@ -28,7 +28,17 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./assets/webpage/static/css/index.css">
   <link rel="stylesheet" href="./assets/webpage/static/css/leaderboard.css">
-  <script type="text/javascript" src="static/js/sort-table.js" defer></script>
+  <style>
+    .no-sort {
+      pointer-events: none !important;
+      cursor: default !important;
+    }
+
+    .no-sort:hover {
+      background-color: inherit !important;
+    }
+  </style>
+
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./assets/webpage/static/js/fontawesome.all.min.js"></script>
@@ -36,9 +46,10 @@
   <script src="./assets/webpage/static/js/bulma-slider.min.js"></script>
   <script src="./assets/webpage/static/js/index.js"></script>
   <script src="./assets/webpage/static/js/question_card.js"></script>
-  <script src="./data/results/data_setting.js" defer></script>
-  <script src="./data/results/model_scores.js" defer></script>
-  <script src="./visualizer/data/data_public.js" defer></script>
+  <!-- Data files - uncomment when available -->
+  <!-- <script src="./data/results/data_setting.js" defer></script> -->
+  <!-- <script src="./data/results/model_scores.js" defer></script> -->
+  <!-- <script src="./visualizer/data/data_public.js" defer></script> -->
 </head>
 
 <body>
@@ -49,11 +60,13 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title is-bold">
-              <img src="static/images/goji_logo.png" style="width:1em;vertical-align: middle" alt="Logo" />
+              <img src="./assets/webpage/static/images/goji_logo.png" style="width:1em;vertical-align: middle"
+                alt="Logo" />
               <span class="lmod" style="vertical-align: middle">LMOD-Benchmark</span>
             </h1>
             <h2 class="subtitle is-3 publication-subtitle">
-              A Large Multimodal Ophthalmology Dataset and Benchmark for Vision-Language Models
+              A Comprehensive Multimodal Dataset and Benchmark for Developing and Evaluating Multimodal Large Language
+              Models in Ophthalmology
             </h2>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
@@ -61,38 +74,75 @@
                   Qin<sup style="color:#6fbf73;">†,1</sup></a>,
               </span>
               <span class="author-block">
-                Yu Yin<sup style="color:#87A2FF;">†, 2</sup>
-                ,
+                Yang Liu<sup style="color:#87A2FF;">†,2</sup>,
               </span>
               <span class="author-block">
-                Dylan Campbell<sup style="color:#ffac33;">3</sup>
-                ,
+                Yu Yin<sup style="color:#ffac33;">3</sup>,
               </span>
               <span class="author-block">
-                Xuansheng Wu<sup style="color:#ed4b82;">4</sup>
-                ,
+                Jinyu Ding<sup style="color:#6fbf73;">1</sup>,
               </span>
-              <span class="author-block">Ninghao Liu<sup style="color:#ed4b82;">4</sup>,</span><br>
-              <span class="author-block">Xiuzhen Zhang<sup style="color:#ed4b82;">5</sup>,</span>
+              <span class="author-block">
+                Casper Zhang<sup style="color:#6fbf73;">1</sup>,
+              </span><br>
+              <span class="author-block">Anran Li<sup style="color:#6fbf73;">1</sup>,</span>
+              <span class="author-block">
+                Dylan Campbell<sup style="color:#87A2FF;">2</sup>,
+              </span>
+              <span class="author-block">
+                Xuansheng Wu<sup style="color:#ed4b82;">4</sup>,
+              </span>
+              <span class="author-block">
+                Ke Zou<sup style="color:#007bff;">5</sup>,
+              </span>
+              <span class="author-block">Tiarnan D. L. Keenan<sup style="color:#28a745;">6</sup>,</span><br>
+              <span class="author-block">Emily Y. Chew<sup style="color:#28a745;">6</sup>,</span>
+              <span class="author-block">Zhiyong Lu<sup style="color:#28a745;">6</sup>,</span>
+              <span class="author-block">Yih-Chung Tham<sup style="color:#007bff;">5</sup>,</span>
+              <span class="author-block">Ninghao Liu<sup style="color:#ed4b82;">4</sup>,</span>
+              <span class="author-block">Xiuzhen Zhang<sup style="color:#dc3545;">7</sup>,</span>
               <span class="author-block">
                 <a href="https://medicine.yale.edu/profile/qingyu-chen/" style="text-decoration: none; color: inherit;">
-                  Qingyu Chen<sup style="color:#ffac33;">1</sup> </a>,
+                  Qingyu Chen<sup style="color:#6fbf73;">*,1</sup> </a>
               </span>
               <br>
 
               <div class="is-size-5 publication-authors">
                 <span class="author-block"><sup style="color:#6fbf73;">1</sup>Yale University,</span>
-                <span class="author-block"><sup style="color:#87A2FF;">2</sup>Imperial College London,</span>
-                <span class="author-block"><sup style="color:#ffac33;">3</sup>Australian National University,</span>
+                <span class="author-block"><sup style="color:#87A2FF;">2</sup>Australian National University,</span>
+                <span class="author-block"><sup style="color:#ffac33;">3</sup>Imperial College London,</span>
                 <span class="author-block"><sup style="color:#ed4b82;">4</sup>University of Georgia,</span>
-                <span class="author-block"><sup style="color:#007bff;">5</sup>RMIT University,</span></br>
+                <span class="author-block"><sup style="color:#007bff;">5</sup>National University of
+                  Singapore,</span><br>
+                <span class="author-block"><sup style="color:#28a745;">6</sup>National Institutes of Health,</span>
+                <span class="author-block"><sup style="color:#dc3545;">7</sup>RMIT University</span>
               </div>
 
               <br>
               <div class="is-size-5 publication-authors">
-                <span class="author-block">†Corresponding to:</span>
-                <span class="author-block"><a href="mailto:qingyu.chen@yale.edu">qingyu.chen@yale.edu</a>,</span>
-                <span class="author-block"><a href="mailto:zhenyue.qin@anu.edu.au">zhenyue.qin@anu.edu.au</a></span>
+                <span class="author-block">†Equal contribution</span><br>
+                <span class="author-block">*Corresponding to:</span>
+                <span class="author-block"><a href="mailto:qingyu.chen@yale.edu">qingyu.chen@yale.edu</a></span>
+              </div>
+
+              <br>
+              <div class="publication-links">
+                <a href="https://arxiv.org/pdf/2410.01620" target="_blank" class="button-link">
+                  <i class="fas fa-file-pdf"></i> Paper
+                </a>
+                <a href="#" target="_blank" class="button-link">
+                  <i class="fab fa-github"></i> Code
+                </a>
+                <a href="#" target="_blank" class="button-link">
+                  <i class="fas fa-database"></i> Dataset
+                </a>
+                <!-- <a href="#leaderboard" class="button-link">
+                  <i class="fas fa-trophy"></i> Leaderboard
+                </a> -->
+                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7322730725097582611/" target="_blank"
+                  class="button-link">
+                  <i class="fas fa-newspaper"></i> News
+                </a>
               </div>
             </div>
           </div>
@@ -106,13 +156,155 @@
       margin-right: auto;
       width: 80%;
     }
+
+    .publication-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .button-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background-color: #2c3e50;
+      color: white !important;
+      text-decoration: none !important;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .button-link:hover {
+      background-color: #34495e;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      color: white !important;
+    }
+
+    .button-link i {
+      font-size: 16px;
+    }
+
+    /* Related Work Table Styles */
+    .table-container {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 20px 0;
+      overflow-x: auto;
+    }
+
+    .table th {
+      background-color: #f8f9fa !important;
+      font-weight: 700;
+      color: #2c3e50;
+      border: 1px solid #dee2e6;
+      padding: 8px 4px;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .table td {
+      padding: 8px 4px;
+      font-size: 12px;
+      vertical-align: middle;
+      text-align: center;
+      border: 1px solid #dee2e6;
+    }
+
+    .table tbody tr:hover {
+      background-color: #f1f3f4;
+    }
+
+    .table td:first-child {
+      text-align: left;
+      font-weight: 500;
+      min-width: 120px;
+    }
+
+    /* Checkmark and X styling */
+    .table td:contains("✓") {
+      color: #28a745;
+      font-weight: bold;
+    }
+
+    .table td:contains("✗") {
+      color: #dc3545;
+      font-weight: bold;
+    }
+
+    /* Leaderboard Table Styles */
+    #table1 {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 14px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    #table1 thead th {
+      text-align: center;
+      font-weight: 700;
+      border: 1px solid #dee2e6;
+      position: relative;
+    }
+
+    #table1 tbody tr {
+      transition: all 0.2s ease;
+      border-bottom: 1px solid #dee2e6;
+    }
+
+    #table1 tbody tr:hover {
+      background-color: #f8f9fa !important;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #table1 tbody td {
+      border: 1px solid #e9ecef;
+      transition: all 0.2s ease;
+    }
+
+    #table1 tbody td:first-child {
+      text-align: left;
+      font-weight: 600;
+      min-width: 200px;
+    }
+
+    /* Performance highlighting */
+    .best-performance {
+      background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+      font-weight: 700;
+      color: #856404;
+      border: 2px solid #f39c12 !important;
+    }
+
+    .second-performance {
+      background: linear-gradient(135deg, #e8f4fd 0%, #b3d9ff 100%);
+      font-weight: 600;
+      color: #2c5aa0;
+      text-decoration: underline;
+    }
   </style>
   <section class="hero teaser">
     <div class="container is-max-desktop">
       <div class="content has-text-centered">
-        <img src="static/images/benchmark_overview.png" width="100%" />
-        <p>Overview of our data processing and evaluation pipeline for assessing the performance of
-          large vision–language models (LVLMs) on box-annotated ophthalmology images.</p>
+        <h2 class="title is-3" style="margin-bottom: 30px;">⚙️ Pipeline</h2>
+        <img src="./assets/webpage/static/images/data_pipeline.jpg" width="100%" />
+        <p>Our comprehensive data curation pipeline systematically processes ophthalmology datasets by extracting key
+          clinical information, anatomical annotations, and diagnostic metadata. We leverage multimodal large language
+          models to automatically generate diverse question-answer pairs spanning anatomical recognition, disease
+          diagnosis, staging assessment, and patient demographic analysis.</p>
       </div>
     </div>
     </div>
@@ -137,23 +329,44 @@
           <h2 class="title is-3">👋Introduction</h2>
           <div class="content has-text-justified">
             <p>
-              This study proposes a systematic and reproducible data and evaluation pipeline that
-              repurposes existing datasets to curate a dataset we refer to as <b>LMOD</b> (<b>L</b>arge
-              <b>M</b>ultimodal <b>O</b>phthalmology
-              <b>D</b>ataset) for the development and evaluation of LVLMs in ophthalmology.
-            <ol>
-              <li>LMOD consists
-                of five ophthalmic imaging modalities: OCT, CFP, scanning laser ophthalmoscopy (SLO), lens photographs,
-                and surgical scenes, along with biomarkers and free text, collectively comprising over 20K</li>
-              <li>LMOD provides multi-granular annotations, including bounding boxes, region annotations,
-                and image-level annotations. The pipeline can be directly applied to new datasets. </li>
-              <li>We further systematically assess 13 state-of-the-art LVLMs on (1) anatomical recognition, which
-                quantifies the effectiveness of LVLMs at the region level. (2) disease diagnosis and classification,
-                which quantifies the effectiveness of LVLMs for ophthalmic diseases. (3) demographic information
-                extraction to assess whether LVLMs can infer demographic variables such as age and gender
-                from ophthalmic images</li>
-            </ol>
+              Vision-threatening eye diseases pose a major global health burden, affecting more than 2.2 billion people
+              worldwide.
+              In the United States alone, over 90 million people are at high risk for vision loss, yet many remain
+              undiagnosed
+              or are diagnosed too late for effective treatment. Up to 50% of patients with diabetic retinopathy do not
+              receive
+              timely eye examinations, highlighting critical gaps in screening and management.
             </p>
+            <p>
+              While artificial intelligence offers promising solutions through multimodal large language models (MLLMs),
+              a major challenge is the lack of unified, comprehensive benchmarks for ophthalmology. Most existing
+              benchmarks
+              were designed for earlier CNN-based models or focus on text-only tasks, failing to reflect real-world
+              ophthalmic
+              practice where medical imaging is indispensable.
+            </p>
+            <p>
+              This work presents <b>LMOD</b>, a significantly enhanced version of our large-scale multimodal
+              ophthalmology benchmark,
+              comprising <b>32,633 images</b> with multi-granular annotations across <b>12 common ophthalmic
+                conditions</b> and
+              <b>5 imaging modalities</b>. Our key contributions include:
+            </p>
+            <ul>
+              <li><b>Expanded Dataset:</b> Nearly 50% increase from 21,933 to 32,633 images, with substantial
+                enlargement
+                of color fundus photographs covering broader pathological conditions</li>
+              <li><b>Comprehensive Tasks:</b> Beyond the original three tasks, we now include 12 binary eye condition
+                diagnosis tasks,
+                multi-class disease diagnosis, severity classification, and demographic prediction to assess potential
+                bias</li>
+              <li><b>Extensive Evaluation:</b> Systematic assessment of 24 state-of-the-art MLLMs, nearly doubling from
+                our
+                previous 13 models, including recent models like InternVL, Qwen, and DeepSeek series</li>
+              <li><b>Public Resources:</b> Full dataset release with dynamic leaderboard and evaluation pipeline to
+                support
+                ongoing benchmarking and model development</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -165,7 +378,7 @@
   <section class="hero is-light is-small">
     <div class="hero-body has-text-centered">
       <h1 class="title is-1 lmod">
-        <img src="static/images/goji_logo.png" style="width:1em;vertical-align: middle" alt="Logo" />
+        <img src="./assets/webpage/static/images/goji_logo.png" style="width:1em;vertical-align: middle" alt="Logo" />
         <span class="lmod" style="vertical-align: middle">LMOD Benchmark</span>
       </h1>
     </div>
@@ -176,11 +389,191 @@
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <h2 class="title is-3">🔍Related Work</h2>
-          <img src="static/images/Related_work.jpg" width="100%" />
-          <p> Comparison of existing general-domain and ophthalmology-specific benchmarks for evaluating large
+          <p style="margin-bottom: 30px;">
+            Comparison of existing general-domain and ophthalmology-specific benchmarks for evaluating large
             vision-language models, highlighting their supported modalities, coverage of image types,
             and evaluation perspectives.
           </p>
+
+          <div class="table-container">
+            <table id="related-work-table"
+              class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth js-sort-none">
+              <thead>
+                <tr style="background-color: #f5f5f5;">
+                  <th rowspan="2" class="has-text-centered js-sort-none no-sort" style="vertical-align: middle;">
+                    <strong>Benchmarks</strong>
+                  </th>
+                  <th colspan="2" class="has-text-centered js-sort-none"><strong>Modalities</strong></th>
+                  <th colspan="5" class="has-text-centered js-sort-none"><strong>Image Types</strong></th>
+                  <th colspan="2" class="has-text-centered js-sort-none"><strong>Evaluation Perspectives</strong></th>
+                </tr>
+                <tr style="background-color: #f5f5f5;">
+                  <th class="has-text-centered js-sort-none" style="font-size: 12px;"><strong>Images</strong></th>
+                  <th class="has-text-centered js-sort-none" style="font-size: 12px;"><strong>Texts</strong></th>
+                  <th class="has-text-centered js-sort-none" style="font-size: 12px;"><strong>Surgical Scenes
+                      (SS)</strong></th>
+                  <th class="has-text-centered js-sort-none" style="font-size: 12px;"><strong>Optical Coherence
+                      Tomography
+                      (OCT)</strong></th>
+                  <th class="has-text-centered js-sort-none" style="font-size: 12px;"><strong>Scanning Laser
+                      Ophthalmoscopy
+                      (SLO)</strong></th>
+                  <th class="has-text-centered js-sort-none" style="font-size: 12px;"><strong>Lens Photographs
+                      (LP)</strong></th>
+                  <th class="has-text-centered js-sort-none" style="font-size: 12px;"><strong>Color Fundus Photographs
+                      (CFP)</strong>
+                  </th>
+                  <th class="has-text-centered js-sort-none" style="font-size: 12px;"><strong>Anatomical
+                      Understanding</strong></th>
+                  <th class="has-text-centered js-sort-none" style="font-size: 12px;"><strong>Diagnosis
+                      Analysis</strong></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="background-color: #f8f9fa; font-weight: 600;">
+                  <td colspan="10" class="has-text-centered" style="background-color: #e9ecef;"><strong>General-Domain
+                      Benchmarks</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>MMMU</strong></td>
+                  <td class="has-text-centered">✓</td>
+                  <td class="has-text-centered">✓</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✓</td>
+                  <td class="has-text-centered">✓</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                </tr>
+                <tr>
+                  <td><strong>MME-RealWorld</strong></td>
+                  <td class="has-text-centered">✓</td>
+                  <td class="has-text-centered">✓</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                </tr>
+                <tr>
+                  <td><strong>UNK-VQA</strong></td>
+                  <td class="has-text-centered">✓</td>
+                  <td class="has-text-centered">✓</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                </tr>
+                <tr>
+                  <td><strong>MMBench</strong></td>
+                  <td class="has-text-centered">✓</td>
+                  <td class="has-text-centered">✓</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                </tr>
+                <tr>
+                  <td><strong>MathVista</strong></td>
+                  <td class="has-text-centered">✓</td>
+                  <td class="has-text-centered">✓</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                </tr>
+                <tr>
+                  <td><strong>SEED-Bench</strong></td>
+                  <td class="has-text-centered">✓</td>
+                  <td class="has-text-centered">✓</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                </tr>
+                <tr style="background-color: #f8f9fa; font-weight: 600;">
+                  <td colspan="10" class="has-text-centered" style="background-color: #e9ecef;">
+                    <strong>Ophthalmology-Specific Benchmarks</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Bench-Nephrology</strong></td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✓</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                </tr>
+                <tr>
+                  <td><strong>Eval-GPT-Ophth</strong></td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✓</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                </tr>
+                <tr>
+                  <td><strong>Bench-Myopia</strong></td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✓</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                </tr>
+                <tr>
+                  <td><strong>OphNet</strong></td>
+                  <td class="has-text-centered">✓</td>
+                  <td class="has-text-centered">✓</td>
+                  <td class="has-text-centered">✓</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                  <td class="has-text-centered">✗</td>
+                </tr>
+                <tr style="background-color: #e8f5e8; font-weight: 600;">
+                  <td><strong>LMOD (ours)</strong></td>
+                  <td class="has-text-centered"><strong>✓</strong></td>
+                  <td class="has-text-centered"><strong>✓</strong></td>
+                  <td class="has-text-centered"><strong>✓</strong></td>
+                  <td class="has-text-centered"><strong>✓</strong></td>
+                  <td class="has-text-centered"><strong>✓</strong></td>
+                  <td class="has-text-centered"><strong>✓</strong></td>
+                  <td class="has-text-centered"><strong>✓</strong></td>
+                  <td class="has-text-centered"><strong>✓</strong></td>
+                  <td class="has-text-centered"><strong>✓</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
@@ -200,57 +593,63 @@
               <tbody>
                 <tr>
                   <td>Cataract-1K</td>
-                  <td>Cataract surgery</td>
+                  <td>Surgical Scene</td>
                   <td>2256</td>
                   <td>Cataract</td>
                 </tr>
                 <tr>
                   <td>Harvard FairSeg</td>
-                  <td>Fundus</td>
+                  <td>Color Fundus Photography</td>
                   <td>10000</td>
                   <td>Retinal</td>
                 </tr>
                 <tr>
                   <td>OIMHS</td>
-                  <td>OCT</td>
+                  <td>Optical Coherence Tomography</td>
                   <td>3859</td>
                   <td>Macular</td>
                 </tr>
                 <tr>
                   <td>CAU001</td>
-                  <td>Eye photo</td>
+                  <td>Lens Photography</td>
                   <td>1417</td>
                   <td>N/A</td>
                 </tr>
                 <tr>
                   <td>Cataract Detection 2</td>
-                  <td>Eye photo</td>
+                  <td>Lens Photography</td>
                   <td>1015</td>
                   <td>Cataract</td>
                 </tr>
                 <tr>
                   <td>REFUGE</td>
-                  <td>Fundus</td>
+                  <td>Color Fundus Photography</td>
                   <td>1200</td>
                   <td>Glaucoma</td>
                 </tr>
                 <tr>
                   <td>IDRiD</td>
-                  <td>Fundus</td>
+                  <td>Color Fundus Photography</td>
                   <td>516</td>
                   <td>Retinopathy</td>
                 </tr>
                 <tr>
                   <td>ORIGA</td>
-                  <td>Fundus</td>
+                  <td>Color Fundus Photography</td>
                   <td>650</td>
                   <td>Glaucoma</td>
                 </tr>
                 <tr>
                   <td>G1020</td>
-                  <td>Fundus</td>
+                  <td>Color Fundus Photography</td>
                   <td>1020</td>
                   <td>Glaucoma</td>
+                </tr>
+                <tr>
+                  <td>BRSET</td>
+                  <td>Color Fundus Photography</td>
+                  <td>16249</td>
+                  <td>Multi</td>
                 </tr>
               </tbody>
             </table>
@@ -264,7 +663,7 @@
     <div class="container is-max-desktop">
       <div class="content has-text-centered">
         <h2 class="title is-3">🖼️ Data Samples</h2>
-        <img src="static/images/eye_dataset.png" width="100%" />
+        <img src="./assets/webpage/static/images/eye_dataset.png" width="100%" />
         <p>This image provides sample annotations from the eight ophthalmology datasets used in our experiments,
           demonstrating the variety and complexity of regional markings. These datasets include: (a) Cataract-1K, (b)
           Harvard FairSeg, (c) OIMHS, (d) CAU001, (e) Cataract Detection 2, (f) REFUGE, (g) IDRiD, and (h) ORIGA.</p>
@@ -276,7 +675,7 @@
   <section class="hero is-light is-small">
     <div class="hero-body has-text-centered">
       <h1 class="title is-1 lmod">
-        <img src="static/images/goji_logo.png" style="width:1em;vertical-align: middle" alt="Logo" />
+        <img src="./assets/webpage/static/images/goji_logo.png" style="width:1em;vertical-align: middle" alt="Logo" />
         <span class="lmod" style="vertical-align: middle">Experiment Results</span>
       </h1>
     </div>
@@ -287,16 +686,102 @@
 
 
       <!-------------------------------------------------------------------- RESULTS SECTION -------------------------------------------------------------------->
+
+      <!-- 1. Performance Comparison Across Imaging Modalities -->
       <div class="columns is-centered m-6">
         <div class="column is-full has-text-centered content">
-          <h2 class="title is-3" id="leaderboard">🎉Main Results</h2>
+          <h2 class="title is-3">📊Ocular Anatomical Structure Recognition Performance</h2>
           <div class="content">
             <div class="content has-text-justified">
-              <img src="static/images/main_results.jpg" width="100%" />
+              <img src="./assets/webpage/static/images/combined_radar_charts_horizontal.jpg" width="100%" />
               <p>
-                Performance comparison of state-of-the-art large vision-language models on the LMOD
-                benchmark, evaluating their capabilities in anatomical recognition, diagnosis analysis, and demographics
-                extraction. The best-performing model in each metric is highlighted in bold.
+                Comprehensive performance evaluation of leading multimodal large language models across diverse
+                ophthalmic imaging techniques.
+                The radar visualization illustrates how top-performing models achieve varying levels of precision,
+                recall, F1-score, and hit rate
+                across five critical imaging modalities in ophthalmology: surgical scenes, optical coherence tomography,
+                color fundus photography,
+                scanning laser ophthalmoscopy, and lens photography. This analysis reveals modality-specific strengths
+                and limitations of current
+                state-of-the-art models in medical image understanding.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Binary Eye Condition Diagnosis -->
+      <div class="columns is-centered m-6">
+        <div class="column is-full has-text-centered content">
+          <h2 class="title is-3">🎯Binary Eye Condition Diagnosis Performance</h2>
+          <div class="content">
+            <div class="content has-text-justified">
+              <img src="./assets/webpage/static/images/binary_classification_heatmap.jpg" width="100%" />
+              <p>
+                Comprehensive diagnostic accuracy assessment of 23 multimodal large language models across 12 distinct
+                eye conditions.
+                The heatmap visualization employs a color-coded accuracy scale from 0 to 1, where darker intensities
+                represent superior
+                diagnostic capabilities. This systematic evaluation demonstrates the varying proficiency of different
+                models in accurately
+                identifying specific ophthalmic conditions, highlighting both model-specific strengths and
+                disease-specific diagnostic challenges
+                in automated eye care diagnosis.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Multi-class Eye Disease Diagnosis -->
+      <div class="columns is-centered m-6">
+        <div class="column is-full has-text-centered content">
+          <h2 class="title is-3">🔬Multi-class Eye Disease Classification Analysis</h2>
+          <div class="content">
+            <div class="content has-text-justified">
+              <img src="./assets/webpage/static/images/multiclass_diagnosis_scatter.jpg" width="100%" />
+              <p>
+                Relationship analysis between model complexity and diagnostic performance in multi-class eye disease
+                classification using
+                color fundus photography. The scatter plot reveals how model parameter scale (measured in billions)
+                correlates with
+                diagnostic accuracy on a four-class classification task. Connected trajectories within model families
+                demonstrate
+                performance scaling patterns across different architectural configurations. The baseline random
+                performance threshold
+                (25% for four-class classification) is indicated by the gray dashed line, with selected LLaVA variants
+                specifically
+                labeled to highlight architectural distinctions and their impact on diagnostic capabilities.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Stage-based Diagnosis Performance -->
+      <div class="columns is-centered m-6">
+        <div class="column is-full has-text-centered content">
+          <h2 class="title is-3">📈Ophthalmologic Stage Diagnosis Capabilities</h2>
+          <div class="content">
+            <div class="content has-text-justified">
+              <img src="./assets/webpage/static/images/stage_diagnosis_accuracy_chart.jpg" width="100%" />
+              <p>
+                Comparative analysis of multimodal large language model performance on stage-based ophthalmologic
+                diagnosis tasks.
+                The bar chart evaluation encompasses 10 carefully selected models tested across three specialized
+                datasets requiring
+                precise stage classification: OIMHS Macular Hole staging, ICDR severity assessment, and SDRG grading.
+                Baseline
+                performance thresholds at 20% and 25% provide reference points for model evaluation. The analysis
+                includes diverse
+                model architectures from InternVL variants (ranging from 1.5-2B to 2.5-8B-MPO parameters), LLaVA family
+                models,
+                specialized LLaVA-Med-7B, QWen-7B, YI-VL-6B, and DeepSeek VL2-Tiny. Results demonstrate that ICDR tasks
+                achieve
+                the highest diagnostic accuracies (approaching 40%), while OIMHS Macular Hole staging and SDRG exhibit
+                more
+                consistent performance within the 15-25% range, with InternVL 2.5-8B showing particular excellence in
+                ICDR assessment.
               </p>
             </div>
           </div>
@@ -305,32 +790,17 @@
 
       <div class="columns is-centered m-6">
         <div class="column is-full has-text-centered content">
-          <h2 class="title is-3" id="leaderboard">🏅Best-performing model comparison</h2>
-          <div class="content">
-            <div class="content has-text-justified">
-              <img src="static/images/ridar_chart.jpg" width="100%" />
-              <p>
-                Comparison of the top five best-performing models for each evaluation metric: Precision,
-                Recall, F1, and PPV, across different medical image categories.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="columns is-centered m-6">
-        <div class="column is-full has-text-centered content">
-          <h2 class="title is-3" id="leaderboard">🏆Full Anatomical Recognition Results</h2>
+          <h2 class="title is-3" id="leaderboard">🏆Gold Standard Leaderboard</h2>
           <div class="content">
             <div class="content has-text-justified">
               <p>
-                We evaluate state-of-the-art large multimodal models (LMMs) with proposed metrics, including proprietary
-                and open-source models. Our evaluation is conducted under a zero-shot setting to assess the capability
-                of LMMs to generate accurate marked-region annotations. For all models, we use the same prompt template
-                for each ophthalmology dataset. For evaluation, we compare the model's output with the ground truth
-                annotations using strict string matching. A predicted label is considered correct only if it exactly
-                matches the corresponding ground truth label, resulting in a binary score of 1 for a perfect match and 0
-                for a mismatch.
+                We conduct comprehensive evaluation of state-of-the-art multimodal large language models (MLLMs) using
+                our proposed benchmarks, encompassing both proprietary and open-source models across multiple
+                performance
+                dimensions. Our evaluation framework focuses on three critical ophthalmological tasks: anatomical
+                recognition, disease diagnosis, and disease stage assessment. The Gold Standard Leaderboard is evaluated
+                on a carefully curated subset of the LMOD dataset, comprising 1,076 images specifically selected for
+                efficient and reliable model evaluation.
               </p>
             </div>
 
@@ -341,266 +811,443 @@
               <span class="leaderboard-label" style="background-color: rgba(249, 242, 248, 1);">Open-Source</span>
               <span class="leaderboard-label" style="background-color: rgba(117, 209, 215, 0.1);">Proprietary</span>
             </div>
-            <!-- Validation Set Leaderboard -->
-            <table id="table1" class="js-sort-table">
-              <tr>
-                <td class="js-sort-number"><strong>Reset</strong></td>
-                <td class="js-sort-string"><strong>Size</strong></td>
-                <td class="js-sort-date"><strong>Date</strong></td>
-                <!-- <td class="js-sort-number"><strong>Overall</strong></td> -->
-                <td class="js-sort-number"><strong>Cataract-1K</strong></td>
-                <td class="js-sort-number"><strong>CAU001</strong></td>
-                <td class="js-sort-number"><strong>Harvard FairSeg</strong></td>
-                <td class="js-sort-number"><strong>IDRiD</strong></td>
-                <td class="js-sort-number"><strong>OIMHS</strong></td>
-                <td class="js-sort-number"><strong>ORIGA</strong></td>
-                <td class="js-sort-number"><strong>REFUGE</strong></td>
-                <td class="js-sort-number"><strong>Cataract Detection 2</strong></td>
-                <td class="js-sort-number"><strong>G1020</strong></td>
-              </tr>
-              <tr style="background-color: rgba(117, 209, 215, 0.1);">
-                <td style="text-align: left;">
-                  <a href="https://openai.com/index/hello-gpt-4o/">
-                    <b>GPT-4o</b>
-                  </a>
-                </td>
-                <td>-</td>
-                <td>2024-05-13</td>
-                <td style="font-weight: bold;">28.6</td>
-                <td style="font-weight: bold;">45.7</td>
-                <td style="text-decoration: underline;">62.1</td>
-                <td>48.3</td>
-                <td style="font-weight: bold;">85.1</td>
-                <td>24.3</td>
-                <td>49.9</td>
-                <td>34.5</td>
-                <td>48.9</td>
-              </tr>
-              <tr style="background-color: rgba(249, 242, 248, 1);">
-                <td style="text-align: left;">
-                  <a href="https://internvl.github.io/blog/2024-05-25-Mini-InternVL-1.5/">
-                    <b>Mini-InternVL-Chat-2B-V1-5</b>
-                  </a>
-                </td>
-                <td>-</td>
-                <td>2024-05-25</td>
-                <td>2.1</td>
-                <td>20.4</td>
-                <td>53.4</td>
-                <td>4.1</td>
-                <td>54.4</td>
-                <td style="text-decoration: underline;">37.8</td>
-                <td style="text-decoration: underline;">80.4</td>
-                <td>40.3</td>
-                <td><strong>72.9</strong></td>
-              </tr>
-              <tr style="background-color: rgba(249, 242, 248, 1);">
-                <td style="text-align: left;">
-                  <a href="https://internvl.github.io/blog/2024-05-25-Mini-InternVL-1.5/">
-                    <b>Mini-InternVL-Chat-4B-V1-5</b>
-                  </a>
-                </td>
-                <td>-</td>
-                <td>2024-05-25</td>
-                <td style="text-decoration: underline;">4.9</td>
-                <td style="text-decoration: underline;">24.8</td>
-                <td style="font-weight: bold;">72.3</td>
-                <td>8.0</td>
-                <td style="text-decoration: underline;">55.5</td>
-                <td><strong>60.8</strong></td>
-                <td style="font-weight: bold;">86.9</td>
-                <td style="font-weight: bold;">66.7</td>
-                <td style="text-decoration: underline;">54.2</td>
-              </tr>
-              <tr style="background-color: rgba(249, 242, 248, 1);">
-                <td style="text-align: left;">
-                  <a href="https://arxiv.org/abs/2306.00890">
-                    <b>LLAVA-Med</b>
-                  </a>
-                </td>
-                <td>-</td>
-                <td>2023-06-01</td>
-                <td>4.6</td>
-                <td>22.1</td>
-                <td>N/A</td>
-                <td style="text-decoration: underline;">64.6</td>
-                <td>3.6</td>
-                <td>30.0</td>
-                <td>52.9</td>
-                <td>1.0</td>
-                <td>0.2</td>
-              </tr>
-              <tr style="background-color: rgba(249, 242, 248, 1);">
-                <td style="text-align: left;">
-                  <a href="https://llava-vl.github.io/">
-                    <b>LLAVA-v1.5-7B</b>
-                  </a>
-                </td>
-                <td>-</td>
-                <td>2023-10-05</td>
-                <td>0.8</td>
-                <td>10.0</td>
-                <td>5.7</td>
-                <td>N/A</td>
-                <td>0.2</td>
-                <td>6.9</td>
-                <td>14.9</td>
-                <td>3.9</td>
-                <td>N/A</td>
-              </tr>
-              <tr style="background-color: rgba(249, 242, 248, 1);">
-                <td style="text-align: left;">
-                  <a href="https://llava-vl.github.io/">
-                    <b>LLAVA-v1.6-Mistral-7B</b>
-                  </a>
-                </td>
-                <td>-</td>
-                <td>2024-01-30</td>
-                <td>2.3</td>
-                <td>19.6</td>
-                <td>11.2</td>
-                <td style="font-weight: bold;">68.4</td>
-                <td>16.2</td>
-                <td>2.4</td>
-                <td>3.2</td>
-                <td>32.6</td>
-                <td>0.3</td>
-              </tr>
-              <tr style="background-color: rgba(249, 242, 248, 1);">
-                <td style="text-align: left;">
-                  <a href="https://llava-vl.github.io/">
-                    <b>LLAVA-v1.6-Vicuna-7B</b>
-                  </a>
-                </td>
-                <td>-</td>
-                <td>2024-01-30</td>
-                <td>4.9</td>
-                <td>13.8</td>
-                <td>52.4</td>
-                <td>1.0</td>
-                <td>0.4</td>
-                <td>0.7</td>
-                <td>0.1</td>
-                <td>26.6</td>
-                <td>0.6</td>
-              </tr>
-              <tr style="background-color: rgba(249, 242, 248, 1);">
-                <td style="text-align: left;">
-                  <a href="https://llava-vl.github.io/">
-                    <b>LLAVA-v1.6-13B</b>
-                  </a>
-                </td>
-                <td>-</td>
-                <td>2024-01-30</td>
-                <td>1.0</td>
-                <td>13.8</td>
-                <td>7.5</td>
-                <td>1.3</td>
-                <td>5.5</td>
-                <td>11.4</td>
-                <td>0.6</td>
-                <td>2.7</td>
-                <td>0.4</td>
-              </tr>
-              <tr style="background-color: rgba(249, 242, 248, 1);">
-                <td style="text-align: left;">
-                  <a href="https://github.com/01-ai/Yi">
-                    <b>Yi-VL-6B</b>
-                  </a>
-                </td>
-                <td>-</td>
-                <td>2023-11-02</td>
-                <td>1.5</td>
-                <td>13.0</td>
-                <td>19.9</td>
-                <td>25.0</td>
-                <td>7.7</td>
-                <td>17.6</td>
-                <td>21.9</td>
-                <td style="text-decoration: underline;">48.2</td>
-                <td>4.3</td>
-              </tr>
-              <tr style="background-color: rgba(249, 242, 248, 1);">
-                <td style="text-align: left;">
-                  <a href="https://github.com/QwenLM/Qwen-VL">
+            <!-- Gold Standard Leaderboard -->
+            <table id="table1">
+              <thead>
+                <!-- First row: Main category headers -->
+                <tr style="background-color: #f8f9fa; border-bottom: 2px solid #dee2e6;">
+                  <th rowspan="2" class="has-text-centered js-sort-none no-sort"
+                    style="vertical-align: middle; border-right: 2px solid #dee2e6; padding: 12px 8px; font-weight: 700; color: #495057; cursor: default; pointer-events: none !important;">
+                    <strong>Models</strong>
+                  </th>
+                  <th rowspan="2" class="has-text-centered js-sort-none no-sort"
+                    style="vertical-align: middle; border-right: 2px solid #dee2e6; padding: 12px 8px; font-weight: 700; color: #495057; cursor: default; pointer-events: none !important;">
+                    <strong>Release Date</strong>
+                  </th>
+                  <th colspan="4" class="has-text-centered"
+                    style="border-right: 2px solid #dee2e6; padding: 12px 8px; font-weight: 700; color: #2c5aa0; background-color: #e8f4fd; cursor: default;">
+                    <strong>Anatomical Recognition</strong>
+                  </th>
+                  <th colspan="2" class="has-text-centered"
+                    style="border-right: 2px solid #dee2e6; padding: 12px 8px; font-weight: 700; color: #28a745; background-color: #e8f5e8; cursor: default;">
+                    <strong>Diagnosis Analysis</strong>
+                  </th>
+                  <th rowspan="2" class="has-text-centered"
+                    style="vertical-align: middle; padding: 12px 8px; font-weight: 700; color: #dc3545; background-color: #fde8e8;">
+                    <strong>Staging Assessment<br />Acc</strong>
+                  </th>
+                </tr>
+                <!-- Second row: Specific metric headers -->
+                <tr style="background-color: #f8f9fa; border-bottom: 1px solid #dee2e6;">
+                  <th class="has-text-centered"
+                    style="padding: 8px 6px; font-size: 13px; font-weight: 600; color: #2c5aa0; background-color: #e8f4fd;">
+                    <strong>Prec.</strong>
+                  </th>
+                  <th class="has-text-centered"
+                    style="padding: 8px 6px; font-size: 13px; font-weight: 600; color: #2c5aa0; background-color: #e8f4fd;">
+                    <strong>Rec.</strong>
+                  </th>
+                  <th class="has-text-centered"
+                    style="padding: 8px 6px; font-size: 13px; font-weight: 600; color: #2c5aa0; background-color: #e8f4fd;">
+                    <strong>F1</strong>
+                  </th>
+                  <th class="has-text-centered"
+                    style="padding: 8px 6px; font-size: 13px; font-weight: 600; color: #2c5aa0; background-color: #e8f4fd; border-right: 2px solid #dee2e6;">
+                    <strong>HC</strong>
+                  </th>
+                  <th class="has-text-centered"
+                    style="padding: 8px 6px; font-size: 13px; font-weight: 600; color: #28a745; background-color: #e8f5e8;">
+                    <strong>Binary Acc</strong>
+                  </th>
+                  <th class="has-text-centered"
+                    style="padding: 8px 6px; font-size: 13px; font-weight: 600; color: #28a745; background-color: #e8f5e8; border-right: 2px solid #dee2e6;">
+                    <strong>Multi-class Acc</strong>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Random Baseline -->
+                <tr>
+                  <td style="text-align: left; padding: 10px 8px; font-weight: 600;">🎲 <b>Random</b></td>
+                  <td style="text-align: center; padding: 10px 8px;"></td>
+                  <td style="text-align: center; padding: 10px 8px;">N/A</td>
+                  <td style="text-align: center; padding: 10px 8px;">N/A</td>
+                  <td style="text-align: center; padding: 10px 8px;">N/A</td>
+                  <td style="text-align: center; padding: 10px 8px;">N/A</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.5000</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2500</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2500</td>
+                </tr>
+                <!-- Proprietary Models -->
+                <tr style="background-color: rgba(117, 209, 215, 0.1);">
+                  <td style="text-align: left; padding: 10px 8px; font-weight: 600;">
+                    🤖 <b>GPT-4o</b>
+                  </td>
+                  <td style="text-align: center; padding: 10px 8px;">2024-05-13</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.3116</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2424</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2577</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.9786</td>
+                  <td style="text-align: center; padding: 10px 8px;">N/A</td>
+                  <td style="text-align: center; padding: 10px 8px;">N/A</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.1053</td>
+                </tr>
+                <!-- Open-Source Models -->
+                <tr style="background-color: rgba(249, 242, 248, 1);">
+                  <td style="text-align: left; padding: 10px 8px; font-weight: 600;">
+                    <img src="./assets/webpage/static/logo/llava_med_logo.png"
+                      style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" alt="LLaVA Logo" />
+                    <b>LLaVa-Med-v1.5-mistral-7B</b>
+                  </td>
+                  <td style="text-align: center; padding: 10px 8px;">2023-06-01</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2090</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2558</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2098</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.6240</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.5000</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2500</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2368</td>
+                </tr>
+                <tr style="background-color: rgba(249, 242, 248, 1);">
+                  <td style="text-align: left; padding: 10px 8px; font-weight: 600;">
+                    <img src="./assets/webpage/static/logo/Yi_logo.svg"
+                      style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" alt="LLaVA Logo" />
+                    <b>YI-VL-6B</b>
+                  </td>
+                  <td style="text-align: center; padding: 10px 8px;">2024-05-11</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.1509</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.0379</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.0451</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.8135</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.4117</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2525</td>
+                  <td style="text-align: center; padding: 10px 8px;"><b>0.4000</b></td>
+                </tr>
+                <tr style="background-color: rgba(249, 242, 248, 1);">
+                  <td style="text-align: left; padding: 10px 8px; font-weight: 600;">
+                    <img src="./assets/webpage/static/logo/medflamingo_logo.webp"
+                      style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" alt="LLaVA Logo" />
+                    <b>Med-Flamingo</b>
+                  </td>
+                  <td style="text-align: center; padding: 10px 8px;">N/A</td>
+                  <td style="text-align: center; padding: 10px 8px;">INVALID</td>
+                  <td style="text-align: center; padding: 10px 8px;">INVALID</td>
+                  <td style="text-align: center; padding: 10px 8px;">INVALID</td>
+                  <td style="text-align: center; padding: 10px 8px;">INVALID</td>
+                  <td style="text-align: center; padding: 10px 8px;">INVALID</td>
+                  <td style="text-align: center; padding: 10px 8px;">INVALID</td>
+                  <td style="text-align: center; padding: 10px 8px;">INVALID</td>
+                </tr>
+                <tr style="background-color: rgba(249, 242, 248, 1);">
+                  <td style="text-align: left; padding: 10px 8px; font-weight: 600;">
+                    <img src="./assets/webpage/static/logo/internVL_logo.webp"
+                      style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" alt="LLaVA Logo" />
+                    <b>InternVL 1.5-2B</b>
+                  </td>
+                  <td style="text-align: center; padding: 10px 8px;">2024-05-25</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2377</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2386</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2204</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.7722</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.5000</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2525</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2632</td>
+                </tr>
+                <tr style="background-color: rgba(249, 242, 248, 1);">
+                  <td style="text-align: left; padding: 10px 8px; font-weight: 600;">
+                    <img src="./assets/webpage/static/logo/internVL_logo.webp"
+                      style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" alt="LLaVA Logo" />
+                    <b>InternVL 1.5-4B</b>
+                  </td>
+                  <td style="text-align: center; padding: 10px 8px;">2024-05-25</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2499</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2541</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2414</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.8096</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.5000</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2500</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2500</td>
+                </tr>
+                <tr style="background-color: rgba(249, 242, 248, 1);">
+                  <td style="text-align: left; padding: 10px 8px; font-weight: 600;">
+                    <img src="./assets/webpage/static/logo/internVL_logo.webp"
+                      style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" alt="LLaVA Logo" />
+                    <b>InternVL 2.0-2B</b>
+                  </td>
+                  <td style="text-align: center; padding: 10px 8px;">2024-07-04</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.3718</td>
+                  <td style="text-align: center; padding: 10px 8px;"><u>0.3912</u></td>
+                  <td style="text-align: center; padding: 10px 8px;"><u>0.3722</u></td>
+                  <td style="text-align: center; padding: 10px 8px;">0.9069</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.5000</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2175</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2500</td>
+                </tr>
+                <tr style="background-color: rgba(249, 242, 248, 1);">
+                  <td style="text-align: left; padding: 10px 8px; font-weight: 600;">
+                    <img src="./assets/webpage/static/logo/internVL_logo.webp"
+                      style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" alt="LLaVA Logo" />
+                    <b>InternVL 2.0-4B</b>
+                  </td>
+                  <td style="text-align: center; padding: 10px 8px;">2024-07-04</td>
+                  <td style="text-align: center; padding: 10px 8px;"><b>0.4200</b></td>
+                  <td style="text-align: center; padding: 10px 8px;"><b>0.4294</b></td>
+                  <td style="text-align: center; padding: 10px 8px;"><b>0.4096</b></td>
+                  <td style="text-align: center; padding: 10px 8px;">0.8951</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.5000</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2525</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2237</td>
+                </tr>
+                <tr style="background-color: rgba(249, 242, 248, 1);">
+                  <td style="text-align: left; padding: 10px 8px; font-weight: 600;">
+                    <img src="./assets/webpage/static/logo/internVL_logo.webp"
+                      style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" alt="LLaVA Logo" />
+                    <b>InternVL 2.0-8B</b>
+                  </td>
+                  <td style="text-align: center; padding: 10px 8px;">2024-07-04</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2865</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2872</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2770</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.9533</td>
+                  <td style="text-align: center; padding: 10px 8px;"><b>0.5017</b></td>
+                  <td style="text-align: center; padding: 10px 8px;"><u>0.3500</u></td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2500</td>
+                </tr>
+                <tr style="background-color: rgba(249, 242, 248, 1);">
+                  <td style="text-align: left; padding: 10px 8px; font-weight: 600;">
+                    <img src="./assets/webpage/static/logo/internVL_logo.webp"
+                      style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" alt="LLaVA Logo" />
+                    <b>InternVL 2.5-2B</b>
+                  </td>
+                  <td style="text-align: center; padding: 10px 8px;">2024-12-05</td>
+                  <td style="text-align: center; padding: 10px 8px;"><u>0.3751</u></td>
+                  <td style="text-align: center; padding: 10px 8px;">0.3681</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.3524</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.9744</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.5017</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.3000</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2308</td>
+                </tr>
+                <tr style="background-color: rgba(249, 242, 248, 1);">
+                  <td style="text-align: left; padding: 10px 8px; font-weight: 600;">
+                    <img src="./assets/webpage/static/logo/internVL_logo.webp"
+                      style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" alt="LLaVA Logo" />
+                    <b>InternVL 2.5-4B</b>
+                  </td>
+                  <td style="text-align: center; padding: 10px 8px;">2024-12-05</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2685</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.1893</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.1890</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.9854</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.5000</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.3225</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2500</td>
+                </tr>
+                <tr style="background-color: rgba(249, 242, 248, 1);">
+                  <td style="text-align: left; padding: 10px 8px; font-weight: 600;">
+                    <img src="./assets/webpage/static/logo/internVL_logo.webp"
+                      style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" alt="LLaVA Logo" />
+                    <b>InternVL 2.5-8B</b>
+                  </td>
+                  <td style="text-align: center; padding: 10px 8px;">2024-12-05</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2851</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2519</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2574</td>
+                  <td style="text-align: center; padding: 10px 8px;"><u>0.9864</u></td>
+                  <td style="text-align: center; padding: 10px 8px;">0.5000</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.3275</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2500</td>
+                </tr>
+                <tr style="background-color: rgba(249, 242, 248, 1);">
+                  <td style="text-align: left; padding: 10px 8px; font-weight: 600;">
+                    <img src="./assets/webpage/static/logo/internVL_logo.webp"
+                      style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" alt="LLaVA Logo" />
+                    <b>InternVL 2.5-2B-MPO</b>
+                  </td>
+                  <td style="text-align: center; padding: 10px 8px;">2025-04-13</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.3123</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2992</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2835</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.9646</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.5000</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2375</td>
+                  <td style="text-align: center; padding: 10px 8px;"><u>0.3077</u></td>
+                </tr>
+                <tr style="background-color: rgba(249, 242, 248, 1);">
+                  <td style="text-align: left; padding: 10px 8px; font-weight: 600;">
+                    <img src="./assets/webpage/static/logo/internVL_logo.webp"
+                      style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" alt="LLaVA Logo" />
+                    <b>InternVL 2.5-4B-MPO</b>
+                  </td>
+                  <td style="text-align: center; padding: 10px 8px;">2025-04-13</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.3126</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2261</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2320</td>
+                  <td style="text-align: center; padding: 10px 8px;"><b>0.9918</b></td>
+                  <td style="text-align: center; padding: 10px 8px;">0.5000</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.3200</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2500</td>
+                </tr>
+                <tr style="background-color: rgba(249, 242, 248, 1);">
+                  <td style="text-align: left; padding: 10px 8px; font-weight: 600;">
+                    <img src="./assets/webpage/static/logo/internVL_logo.webp"
+                      style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" alt="LLaVA Logo" />
+                    <b>InternVL 2.5-8B-MPO</b>
+                  </td>
+                  <td style="text-align: center; padding: 10px 8px;">2025-04-13</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2986</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2536</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2624</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.9838</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.5000</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2650</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.1053</td>
+                </tr>
+                <tr style="background-color: rgba(249, 242, 248, 1);">
+                  <td style="text-align: left; padding: 10px 8px; font-weight: 600;">
+                    <img src="./assets/webpage/static/logo/llava_logo.webp"
+                      style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" alt="LLaVA Logo" />
+                    <b>LLaVA-1.5-7B</b>
+                  </td>
+                  <td style="text-align: center; padding: 10px 8px;">2023-10-05</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.0965</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.0530</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.0557</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.4629</td>
+                  <td style="text-align: center; padding: 10px 8px;"><u>0.4937</u></td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2475</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2500</td>
+                </tr>
+                <tr style="background-color: rgba(249, 242, 248, 1);">
+                  <td style="text-align: left; padding: 10px 8px; font-weight: 600;">
+                    <img src="./assets/webpage/static/logo/llava_logo.webp"
+                      style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" alt="LLaVA Logo" />
+                    <b>LLaVA-Mistral-7B</b>
+                  </td>
+                  <td style="text-align: center; padding: 10px 8px;">2024-01-30</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.0806</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.0773</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.0696</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.5788</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.5000</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2500</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2500</td>
+                </tr>
+                <tr style="background-color: rgba(249, 242, 248, 1);">
+                  <td style="text-align: left; padding: 10px 8px; font-weight: 600;">
+                    <img src="./assets/webpage/static/logo/llava_logo.webp"
+                      style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" alt="LLaVA Logo" />
+                    <b>LLaVA-Vicuna-7B</b>
+                  </td>
+                  <td style="text-align: center; padding: 10px 8px;">2024-01-30</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.0437</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.0353</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.0342</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.1929</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.5000</td>
+                  <td style="text-align: center; padding: 10px 8px;"><b>0.3693</b></td>
+                  <td style="text-align: center; padding: 10px 8px;">N/A</td>
+                </tr>
+                <tr style="background-color: rgba(249, 242, 248, 1);">
+                  <td style="text-align: left; padding: 10px 8px; font-weight: 600;">
+                    <img src="./assets/webpage/static/logo/llava_logo.webp"
+                      style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" alt="LLaVA Logo" />
+                    <b>LLaVA-Vicuna-13B</b>
+                  </td>
+                  <td style="text-align: center; padding: 10px 8px;">2024-01-30</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.1123</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.0071</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.0105</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.6612</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.5000</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2725</td>
+                  <td style="text-align: center; padding: 10px 8px;">N/A</td>
+                </tr>
+                <tr style="background-color: rgba(249, 242, 248, 1);">
+                  <td style="text-align: left; padding: 10px 8px; font-weight: 600;">
+                    <img src="./assets/webpage/static/logo/qwen_logo.webp"
+                      style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" alt="LLaVA Logo" />
                     <b>Qwen-VL-Chat</b>
-                  </a>
-                </td>
-                <td>-</td>
-                <td>2023-08-22</td>
-                <td>4.0</td>
-                <td>8.5</td>
-                <td>0.1</td>
-                <td>4.7</td>
-                <td>3.6</td>
-                <td>N/A</td>
-                <td>0.6</td>
-                <td>20.6</td>
-                <td>0.1</td>
-              </tr>
-              <tr style="background-color: rgba(249, 242, 248, 1);">
-                <td style="text-align: left;">
-                  <a href="https://github.com/NVLabs/VILA">
-                    <b>VILA1.5-3b</b>
-                  </a>
-                </td>
-                <td>-</td>
-                <td>2024-05</td>
-                <td>4.7</td>
-                <td>2.9</td>
-                <td>17.1</td>
-                <td>1.2</td>
-                <td>1.9</td>
-                <td>10.4</td>
-                <td>2.7</td>
-                <td>7.4</td>
-                <td>0.1</td>
-              </tr>
-              <tr style="background-color: rgba(249, 242, 248, 1);">
-                <td style="text-align: left;">
-                  <a href="https://github.com/NVLabs/VILA">
-                    <b>VILA1.5-3b-s2</b>
-                  </a>
-                </td>
-                <td>-</td>
-                <td>2024-05</td>
-                <td>4.0</td>
-                <td>4.6</td>
-                <td>52.0</td>
-                <td>N/A</td>
-                <td>7.0</td>
-                <td>21.2</td>
-                <td>17.8</td>
-                <td>12.1</td>
-                <td>0.3</td>
-              </tr>
-              <tr style="background-color: rgba(249, 242, 248, 1);">
-                <td style="text-align: left;">
-                  <a href="https://github.com/NVLabs/VILA">
-                    <b>VILA</b>
-                  </a>
-                </td>
-                <td>-</td>
-                <td>2024-05</td>
-                <td>N/A</td>
-                <td>N/A</td>
-                <td>N/A</td>
-                <td>N/A</td>
-                <td>N/A</td>
-                <td>N/A</td>
-                <td>N/A</td>
-                <td>N/A</td>
-                <td>N/A</td>
-              </tr>
+                  </td>
+                  <td style="text-align: center; padding: 10px 8px;">2023-08-22</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.1040</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.0120</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.0178</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.7790</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.5000</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2675</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2763</td>
+                </tr>
+                <tr style="background-color: rgba(249, 242, 248, 1);">
+                  <td style="text-align: left; padding: 10px 8px; font-weight: 600;">
+                    <img src="./assets/webpage/static/logo/qwen_logo.webp"
+                      style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" alt="LLaVA Logo" />
+                    <b>Qwen-3B</b>
+                  </td>
+                  <td style="text-align: center; padding: 10px 8px;">N/A</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2611</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.1489</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.1509</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.7468</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.5000</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2500</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2368</td>
+                </tr>
+                <tr style="background-color: rgba(249, 242, 248, 1);">
+                  <td style="text-align: left; padding: 10px 8px; font-weight: 600;">
+                    <img src="./assets/webpage/static/logo/qwen_logo.webp"
+                      style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" alt="LLaVA Logo" />
+                    <b>Qwen-7B</b>
+                  </td>
+                  <td style="text-align: center; padding: 10px 8px;">2023-08-03</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2506</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2261</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2251</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.7556</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.5017</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2500</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2368</td>
+                </tr>
+                <tr style="background-color: rgba(249, 242, 248, 1);">
+                  <td style="text-align: left; padding: 10px 8px; font-weight: 600;">
+                    <img src="./assets/webpage/static/logo/qwen_logo.webp"
+                      style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" alt="LLaVA Logo" />
+                    <b>DeepSeek VL2-Tiny</b>
+                  </td>
+                  <td style="text-align: center; padding: 10px 8px;">2024-12-13</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2228</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.0583</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.0688</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.9518</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.5000</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2500</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.2237</td>
+                </tr>
+                <tr style="background-color: rgba(249, 242, 248, 1);">
+                  <td style="text-align: left; padding: 10px 8px; font-weight: 600;">
+                    <img src="./assets/webpage/static/logo/qwen_logo.webp"
+                      style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" alt="LLaVA Logo" />
+                    <b>DeepSeek VL2-Small</b>
+                  </td>
+                  <td style="text-align: center; padding: 10px 8px;">2024-12-13</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.0805</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.0130</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.0218</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.5917</td>
+                  <td style="text-align: center; padding: 10px 8px;">INVALID</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.1700</td>
+                  <td style="text-align: center; padding: 10px 8px;">0.0667</td>
+                </tr>
+              </tbody>
             </table>
-            <p class="validation-desc"> Overall results of different large multimodal models on the different
-              ophthalmology datasets. The
-              best-performing model in each category is <b>in-bold</b>, and the second best is <u>underlined</u>. *:
-              results provided by the authors.</p>
+            <p class="validation-desc"> Comprehensive evaluation results of different large multimodal models across
+              anatomical recognition, diagnosis, and stage classification tasks. The best-performing model in each
+              category is <b>in-bold</b>, and the second best is <u>underlined</u>. Models are evaluated under zero-shot
+              settings with consistent prompt templates.</p>
             <p>
               To submit to our <a href="#leaderboard">leaderboard</a>, please send an email that contains the scores and
-              a brief description of the large multimodal model to Yu Yin via <a
-                href="mailto:yu.yin23@imperial.ac.uk">yy923@ic.ac.uk</a>.
+              a brief description of the large multimodal model to Zhenyue Qin via <a
+                href="mailto:zhenyue.qin@yale.edu">zhenyue.qin@yale.edu</a>.
             </p>
           </div>
         </div>
@@ -2073,6 +2720,17 @@
       background-color: #ffffff;
     }
   </style>
+
+  <script>
+    function lmod_bibtex() {
+      alert(`@article{qin2024lmod,
+  title={LMOD-Benchmark: A Large Multimodal Ophthalmology Dataset and Benchmark for Vision-Language Models},
+  author={Qin, Zhenyue and Liu, Yang and Yin, Yu and Ding, Jinyu and Zhang, Casper and Li, Anran and Campbell, Dylan and Wu, Xuansheng and Zou, Ke and Keenan, Tiarnan D. L. and Chew, Emily Y. and Lu, Zhiyong and Tham, Yih-Chung and Liu, Ninghao and Zhang, Xiuzhen and Chen, Qingyu},
+  journal={arXiv preprint},
+  year={2024}
+}`);
+    }
+  </script>
 
 </body>
 

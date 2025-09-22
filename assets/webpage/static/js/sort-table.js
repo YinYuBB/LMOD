@@ -153,12 +153,23 @@ sortTable.date = function(Cell) {
 /**
  * Helper function that converts a table cell (TD) to a comparable value
  * Converts innerHTML to a JS Number object
+ * Treats INVALID, N/A, and other non-numeric values as 0
  *
  * @param Cell A TD DOM object
  * @returns {Number}
  */
 sortTable.number = function(Cell) {
-    return Number(sortTable.stripTags(Cell.innerHTML).replace(/[^-\d.]/g, ''));
+    var cellText = sortTable.stripTags(Cell.innerHTML).trim();
+    
+    // Handle special cases: INVALID, N/A should be treated as 0
+    if (cellText === 'INVALID' || cellText === 'N/A' || cellText === '' || cellText === '-') {
+        return 0;
+    }
+    
+    var num = Number(cellText.replace(/[^-\d.]/g, ''));
+    
+    // If the conversion results in NaN, return 0
+    return isNaN(num) ? 0 : num;
 };
 
 /**
