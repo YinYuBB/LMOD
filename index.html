@@ -130,10 +130,10 @@
                 <a href="https://arxiv.org/pdf/2410.01620" target="_blank" class="button-link">
                   <i class="fas fa-file-pdf"></i> Paper
                 </a>
-                <a href="#" target="_blank" class="button-link">
+                <!-- <a href="#" target="_blank" class="button-link">
                   <i class="fab fa-github"></i> Code
-                </a>
-                <a href="#" target="_blank" class="button-link">
+                </a> -->
+                <a href="https://yaleedu-my.sharepoint.com/:f:/r/personal/zhenyue_qin_yale_edu/Documents/Research/Data/LMOD/Processed-Data?csf=1&web=1&e=jf7rso" target="_blank" class="button-link">
                   <i class="fas fa-database"></i> Dataset
                 </a>
                 <!-- <a href="#leaderboard" class="button-link">
@@ -296,22 +296,28 @@
       text-decoration: underline;
     }
   </style>
-  <section class="hero teaser">
-    <div class="container is-max-desktop">
-      <div class="content has-text-centered">
-        <h2 class="title is-3" style="margin-bottom: 30px;">⚙️ Pipeline</h2>
-        <img src="./assets/webpage/static/images/data_pipeline.jpg" width="100%" />
-        <p>Our comprehensive data curation pipeline systematically processes ophthalmology datasets by extracting key
-          clinical information, anatomical annotations, and diagnostic metadata. We leverage multimodal large language
-          models to automatically generate diverse question-answer pairs spanning anatomical recognition, disease
-          diagnosis, staging assessment, and patient demographic analysis.</p>
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">⚙️ Pipeline</h2>
+          <div class="content has-text-justified">
+            <img src="./assets/webpage/static/images/data_pipeline.jpg" width="100%" />
+            <p>Our comprehensive data curation pipeline systematically processes ophthalmology datasets by extracting
+              key
+              clinical information, anatomical annotations, and diagnostic metadata. We leverage multimodal large
+              language
+              models to automatically generate diverse question-answer pairs spanning anatomical recognition, disease
+              diagnosis, staging assessment, and patient demographic analysis.</p>
+          </div>
+        </div>
       </div>
     </div>
     </div>
   </section>
 
   <section class="section">
-    <div class="container" style="margin-bottom: 2vh;">
+    <div class="container">
       <!-- Abstract. -->
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
@@ -346,17 +352,17 @@
               practice where medical imaging is indispensable.
             </p>
             <p>
-              This work presents <b>LMOD</b>, a significantly enhanced version of our large-scale multimodal
+              This work presents <b>LMOD+</b>, a significantly enhanced version of our large-scale multimodal
               ophthalmology benchmark,
               comprising <b>32,633 images</b> with multi-granular annotations across <b>12 common ophthalmic
                 conditions</b> and
               <b>5 imaging modalities</b>. Our key contributions include:
             </p>
             <ul>
-              <li><b>Expanded Dataset:</b> Nearly 50% increase from 21,933 to 32,633 images, with substantial
-                enlargement
-                of color fundus photographs covering broader pathological conditions</li>
-              <li><b>Comprehensive Tasks:</b> Beyond the original three tasks, we now include 12 binary eye condition
+              <li><b>Comprehensive Dataset:</b> Our dataset encompasses 32,633 high-quality images, featuring an
+                extensive
+                collection of color fundus photographs that covers diverse pathological conditions</li>
+              <li><b>Diverse Tasks:</b> Beyond the original three tasks, we now include 12 binary eye condition
                 diagnosis tasks,
                 multi-class disease diagnosis, severity classification, and demographic prediction to assess potential
                 bias</li>
@@ -375,25 +381,27 @@
   </section>
 
   <!-- DATASET SECTION -->
-  <section class="hero is-light is-small">
+  <!-- <section class="hero is-light is-small">
     <div class="hero-body has-text-centered">
       <h1 class="title is-1 lmod">
         <img src="./assets/webpage/static/images/goji_logo.png" style="width:1em;vertical-align: middle" alt="Logo" />
         <span class="lmod" style="vertical-align: middle">LMOD+</span>
       </h1>
     </div>
-  </section>
+  </section> -->
 
   <section class="section">
     <div class="container">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <h2 class="title is-3">🔍Related Work</h2>
-          <p style="margin-bottom: 30px;">
-            Comparison of existing general-domain and ophthalmology-specific benchmarks for evaluating large
-            vision-language models, highlighting their supported modalities, coverage of image types,
-            and evaluation perspectives.
-          </p>
+          <div class="content has-text-justified">
+            <p>
+              Comparison of existing general-domain and ophthalmology-specific benchmarks for evaluating large
+              vision-language models, highlighting their supported modalities, coverage of image types,
+              and evaluation perspectives.
+            </p>
+          </div>
 
           <div class="table-container">
             <table id="related-work-table"
@@ -560,7 +568,7 @@
                   <td class="has-text-centered">✗</td>
                 </tr>
                 <tr style="background-color: #e8f5e8; font-weight: 600;">
-                  <td><strong>LMOD (ours)</strong></td>
+                  <td><strong>LMOD+ (ours)</strong></td>
                   <td class="has-text-centered"><strong>✓</strong></td>
                   <td class="has-text-centered"><strong>✓</strong></td>
                   <td class="has-text-centered"><strong>✓</strong></td>
@@ -577,8 +585,8 @@
         </div>
       </div>
 
-      <div class="columns is-centered m-6">
-        <div class="column is-three-quarters has-text-centered content">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
           <h2 class="title is-3">📊Statistics</h2>
           <div class="content">
             <table id="statistics-table" class="js-sort-table">
@@ -599,7 +607,7 @@
                 </tr>
                 <tr>
                   <td>Harvard FairSeg</td>
-                  <td>Color Fundus Photography</td>
+                  <td>Scanning Laser Ophthalmoscopy</td>
                   <td>10000</td>
                   <td>Retinal</td>
                 </tr>
@@ -659,14 +667,20 @@
     </div>
   </section>
 
-  <section class="hero teaser">
-    <div class="container is-max-desktop">
-      <div class="content has-text-centered">
-        <h2 class="title is-3">🖼️ Data Samples</h2>
-        <img src="./assets/webpage/static/images/eye_dataset.png" width="100%" />
-        <p>This image provides sample annotations from the eight ophthalmology datasets used in our experiments,
-          demonstrating the variety and complexity of regional markings. These datasets include: (a) Cataract-1K, (b)
-          Harvard FairSeg, (c) OIMHS, (d) CAU001, (e) Cataract Detection 2, (f) REFUGE, (g) IDRiD, and (h) ORIGA.</p>
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">🖼️ Data Samples</h2>
+          <div class="content has-text-justified">
+            <img src="./assets/webpage/static/images/eye_dataset.png" width="100%" />
+            <p>This image provides sample annotations from the eight ophthalmology datasets used in our experiments,
+              demonstrating the variety and complexity of regional markings. These datasets include: (a) Cataract-1K,
+              (b)
+              Harvard FairSeg, (c) OIMHS, (d) CAU001, (e) Cataract Detection 2, (f) REFUGE, (g) IDRiD, and (h) ORIGA.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -676,15 +690,12 @@
     <div class="hero-body has-text-centered">
       <h1 class="title is-1 lmod">
         <img src="./assets/webpage/static/images/goji_logo.png" style="width:1em;vertical-align: middle" alt="Logo" />
-        <span class="lmod" style="vertical-align: middle">Experiment Results</span>
+        <span class="lmod" style="vertical-align: middle">Benchmark Results</span>
       </h1>
     </div>
   </section>
   <section class="section">
     <div class="container">
-
-
-
       <!-------------------------------------------------------------------- RESULTS SECTION -------------------------------------------------------------------->
 
       <!-- 1. Performance Comparison Across Imaging Modalities -->
@@ -693,7 +704,8 @@
           <h2 class="title is-3">📊Ocular Anatomical Structure Recognition Performance</h2>
           <div class="content">
             <div class="content has-text-justified">
-              <img src="./assets/webpage/static/images/combined_radar_charts_horizontal.jpg" width="100%" />
+              <img src="./assets/webpage/static/images/combined_radar_charts_horizontal.jpg" width="80%"
+                style="display: block; margin: 0 auto;" />
               <p>
                 Comprehensive performance evaluation of leading multimodal large language models across diverse
                 ophthalmic imaging techniques.
@@ -716,7 +728,8 @@
           <h2 class="title is-3">🎯Binary Eye Condition Diagnosis Performance</h2>
           <div class="content">
             <div class="content has-text-justified">
-              <img src="./assets/webpage/static/images/binary_classification_heatmap.jpg" width="100%" />
+              <img src="./assets/webpage/static/images/binary_classification_heatmap.jpg" width="60%"
+                style="display: block; margin: 0 auto;" />
               <p>
                 Comprehensive diagnostic accuracy assessment of 23 multimodal large language models across 12 distinct
                 eye conditions.
@@ -739,7 +752,8 @@
           <h2 class="title is-3">🔬Multi-class Eye Disease Classification Analysis</h2>
           <div class="content">
             <div class="content has-text-justified">
-              <img src="./assets/webpage/static/images/multiclass_diagnosis_scatter.jpg" width="100%" />
+              <img src="./assets/webpage/static/images/multiclass_diagnosis_scatter.jpg" width="70%"
+                style="display: block; margin: 0 auto;" />
               <p>
                 Relationship analysis between model complexity and diagnostic performance in multi-class eye disease
                 classification using
@@ -764,7 +778,8 @@
           <h2 class="title is-3">📈Ophthalmologic Stage Diagnosis Capabilities</h2>
           <div class="content">
             <div class="content has-text-justified">
-              <img src="./assets/webpage/static/images/stage_diagnosis_accuracy_chart.jpg" width="100%" />
+              <img src="./assets/webpage/static/images/stage_diagnosis_accuracy_chart.jpg" width="70%"
+                style="display: block; margin: 0 auto;" />
               <p>
                 Comparative analysis of multimodal large language model performance on stage-based ophthalmologic
                 diagnosis tasks.
@@ -790,7 +805,7 @@
 
       <div class="columns is-centered m-6">
         <div class="column is-full has-text-centered content">
-          <h2 class="title is-3" id="leaderboard">🏆Gold Standard Leaderboard</h2>
+          <h2 class="title is-3" id="leaderboard">🏆LMOD+ Subset Leaderboard</h2>
           <div class="content">
             <div class="content has-text-justified">
               <p>
@@ -798,8 +813,11 @@
                 our proposed benchmarks, encompassing both proprietary and open-source models across multiple
                 performance
                 dimensions. Our evaluation framework focuses on three critical ophthalmological tasks: anatomical
-                recognition, disease diagnosis, and disease stage assessment. The Gold Standard Leaderboard is evaluated
-                on a carefully curated subset of the LMOD dataset, comprising 1,076 images specifically selected for
+                recognition, disease diagnosis, and disease stage assessment. The LMOD+ Standard Leaderboard is
+                evaluated
+                on a carefully curated LMOD+ <a href="https://yaleedu-my.sharepoint.com/:f:/r/personal/zhenyue_qin_yale_edu/Documents/Research/Data/LMOD/LMOD-Subset?csf=1&web=1&e=F5mZlx" target="_blank"
+                  style="color: #2c5aa0; text-decoration: underline;">subset</a>, comprising 1,076
+                images specifically selected for
                 efficient and reliable model evaluation.
               </p>
             </div>
@@ -1277,7 +1295,7 @@
       <div class="column is-8">
         <div class="content">
           <p>
-            This website is website adapted from <a href="https://lmod-benchmark.github.io/">lmod</a>, <a
+            This website is website adapted from <a href="https://lmod-benchmark.github.io/">LMOD+</a>, <a
               href="https://nerfies.github.io/">Nerfies</a> and <a href="https://mathvista.github.io/">MathVista</a>,
             licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
               Commons Attribution-ShareAlike 4.0 International License</a>.
